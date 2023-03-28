@@ -59,7 +59,7 @@ jobs:
           min_coverage: 70
 
   build_android:
-    name: Build android
+    name: Build Android
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
@@ -102,8 +102,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: subosito/flutter-action@v2
         with:
-          channel: '3.7.7'
-          architecture: any
+          channel: 'stable'
       
       - name: Get dependencies
         run: flutter pub get
