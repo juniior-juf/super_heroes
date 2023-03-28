@@ -56,7 +56,7 @@ jobs:
         uses: dorny/test-reporter@v1
         with:
           name: Flutter test results
-          path: test-results.json
+          path: test-result.json
           reporter: flutter-json
       
       - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
