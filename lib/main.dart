@@ -52,7 +52,7 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        title: 'Super Heroes',
+        title: 'Super Heroeees',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
