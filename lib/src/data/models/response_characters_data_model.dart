@@ -21,7 +21,7 @@ class ResponseCharactersDataModel extends CharacterDataEntity {
           .toList(),
     );
   }
-  @override
+
   ResponseCharactersDataModel copyWith({
     int? offset,
     int? limit,
