@@ -1,4 +1,4 @@
-package com.example.guide_app
+package br.com.superheroes
 
 import io.flutter.embedding.android.FlutterActivity
 

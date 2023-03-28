@@ -1,16 +1,26 @@
-# guide_app
+# Super Heores
 
-A new Flutter project.
+Projeto desenvolvido para aplicação em vaga de dev Flutter.
 
-## Getting Started
+## Configurações do projeto
 
-This project is a starting point for a Flutter application.
+Para rodar este projeto é necessário os seguintes requisitos:
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter Stable: 3.7.7
+- Dart: >= 2.19.4
+- Android SDK version: 30.0.3
+- Xcode 14.2 and Android Studio (version 2022.1)
+- Environment development: VS Code (version 1.76.1) ou Android Studio
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Configurações para conectar com a api da Marvel
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Crie um arquivo ".env" na raiz do projeto e adicione as variáveis de ambiente como mostar o arquivo ".example.env".
+- Substitua os valores "MY_PUBLIC_KEY" e "MY_PRIVATE_KEY" pelas suas chaves geradas na criação da conta na api da Marvel.
+- Execute o Projeto
+
+## Testes
+
+Para rodar todos os teste, execute o seginte comando: flutter test
+
+Qualquer dúvida fico á disposição para sanar.
+Desde já agradeço!
