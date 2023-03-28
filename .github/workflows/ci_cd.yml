@@ -59,7 +59,7 @@ jobs:
           min_coverage: 70
 
   build_android:
-    name: Build android
+    name: Build Android
     needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
