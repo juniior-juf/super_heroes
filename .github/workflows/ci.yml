@@ -1,7 +1,7 @@
 name: CI
 
 on:
-  # Ações e branches em que devo rodar o CI
+  # Ações e branches em que deve rodar o CI
   push:
     branches:
       - 'main'

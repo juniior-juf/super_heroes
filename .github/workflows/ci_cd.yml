@@ -104,6 +104,9 @@ jobs:
         with:
           channel: 'stable'
       
+      - name: Write .env
+        run: echo '{{ secrets.APP_ENV }}' > .env
+
       - name: Get dependencies
         run: flutter pub get
 
