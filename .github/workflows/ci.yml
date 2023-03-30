@@ -33,7 +33,11 @@ jobs:
           cache: true
 
       - name: Write .env
-        run: echo '{{ secrets.APP_ENV }}' > .env
+        run: | 
+          echo HOST_API=${{ secrets.HOST_API }}
+           PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}
+           PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}
+           > .env
 
       - name: Get dependencies
         run: flutter pub get
