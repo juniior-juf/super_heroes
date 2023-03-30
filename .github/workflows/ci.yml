@@ -1,7 +1,6 @@
 name: CI
 
 on:
-  # Ações e branches em que deve rodar o CI
   push:
     branches:
       - 'main'
@@ -12,10 +11,10 @@ on:
       - 'main'
       - 'develop'
 
-  workflow_dispatch:
 
 jobs:
   flutter_test:
+    name: Running tests
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
@@ -33,12 +32,7 @@ jobs:
           cache: true
 
       - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1.3
-        with:
-          envkey_HOST_API: ${{ secrets.HOST_API }}
-          envkey_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
-          envkey_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-          file_name: .env
+        run: echo "" >> .env
 
       - name: Get dependencies
         run: flutter pub get
@@ -65,6 +59,6 @@ jobs:
           path: test-result.json
           reporter: flutter-json
       
-      - uses: VeryGoodOpenSource/very_good_coverage@v1.1.1
+      - uses: VeryGoodOpenSource/very_good_coverage@v2
         with:
           min_coverage: 70
