@@ -32,8 +32,13 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Write .env
-        run: echo '{{ secrets.APP_ENV }}' > .env
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_HOST_API: ${{ secrets.HOST_API }}
+          envkey_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          envkey_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          file_name: .env
 
       - name: Get dependencies
         run: flutter pub get

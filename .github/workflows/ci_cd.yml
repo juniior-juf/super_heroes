@@ -26,8 +26,13 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Write .env
-        run: echo '{{ secrets.APP_ENV }}' > .env
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1.3
+        with:
+          envkey_HOST_API: ${{ secrets.HOST_API }}
+          envkey_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+          envkey_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          file_name: .env
 
       - name: Get dependencies
         run: flutter pub get
@@ -76,8 +81,18 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Write .env
-        run: echo '{{ secrets.APP_ENV }}' > .env
+      - name: Create .env file
+        run: |
+          echo "HOST_API=${{ secrets.HOST_API }}" >> .env
+          echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> .env
+          echo "PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}" >> .env
+      # - name: Create .env file
+      #   uses: SpicyPizza/create-envfile@v1.3
+      #   with:
+      #     envkey_HOST_API: ${{ secrets.HOST_API }}
+      #     envkey_PUBLIC_KEY: ${{ secrets.PUBLIC_KEY }}
+      #     envkey_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      #     file_name: .env
   
       - name: Get dependencies
         run: flutter pub get
@@ -104,8 +119,13 @@ jobs:
         with:
           channel: 'stable'
       
-      - name: Write .env
-        run: echo '{{ secrets.APP_ENV }}' > .env
+      - name: Create .env file
+        run: |
+          cat > .env <<EOF
+          HOST_API=${{ secrets.HOST_API }}
+          PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}
+          PRIVATE_KEY=${{ secrets.PRIVATE_KEY }}
+          EOF
 
       - name: Get dependencies
         run: flutter pub get
