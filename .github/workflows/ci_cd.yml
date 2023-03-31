@@ -24,7 +24,6 @@ jobs:
           channel: 'stable'
           cache: true
       
-    
       - name: Run flutter doctor
         run: flutter doctor -v
 
@@ -36,7 +35,7 @@ jobs:
       
       - name: Create keystore.properties file
         run: |
-          echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > app/upload-keystore.jks
+          echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > upload-keystore.jks
           echo "storeFile=upload-keystore.jks" >> keystore.properties
           echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> keystore.properties
           echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> keystore.properties
