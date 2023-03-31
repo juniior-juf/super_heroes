@@ -18,6 +18,9 @@ jobs:
     permissions: write-all
     runs-on: ubuntu-latest
     steps:
+      - name: Create .env file
+        run: echo "" >> .env
+
       - uses: actions/checkout@v3
       - uses: actions/setup-java@v3
         with:
@@ -31,8 +34,8 @@ jobs:
           channel: 'stable'
           cache: true
 
-      - name: Create .env file
-        run: echo "" >> .env
+      - name: Run flutter doctor
+        run: flutter doctor -v
 
       - name: Get dependencies
         run: flutter pub get
