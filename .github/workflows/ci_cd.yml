@@ -111,14 +111,14 @@ jobs:
       - name: Build ${{ matrix.target }} release 
         run: flutter build ${{ matrix.target }}
 
-      - if: ${{ matrix.target.apk }} 
+      - if: ${{ matrix.target == apk }} 
         name: Upload ${{ matrix.target }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
           path: build/app/outputs/apk/release/app-release.apk
          
-      - if: ${{ matrix.target.appbundle }} 
+      - if: ${{ matrix.target == appbundle }} 
         name: Upload ${{ matrix.target }}
         uses: actions/upload-artifact@v3
         with:
