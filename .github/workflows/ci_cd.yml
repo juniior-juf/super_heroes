@@ -111,12 +111,20 @@ jobs:
       - name: Build ${{ matrix.target }} release 
         run: flutter build ${{ matrix.target }}
 
-      - name: Upload ${{ matrix.target }}
+      - if: ${{ matrix.target.apk }} 
+        name: Upload ${{ matrix.target }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.target }}
-          path: build/app/outputs/${{ matrix.target }}/release/app-release.${{ matrix.target }}
-
+          path: build/app/outputs/apk/release/app-release.apk
+         
+      - if: ${{ matrix.target.appbundle }} 
+        name: Upload ${{ matrix.target }}
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.target }}
+          path: build/app/outputs/bundle/release/app-release.aab
+         
   build_ios:
     name: Build iOS
     needs: [flutter_test]
