@@ -36,12 +36,13 @@ jobs:
       - name: Create keystore.properties file
         run: |
           echo "$PLAY_STORE_UPLOAD_KEY" | base64 --decode > upload-keystore.jks
-          echo "storeFile=upload-keystore.jks" >> keystore.properties
+          echo "storeFile=$STORE_FILE" >> keystore.properties
           echo "keyAlias=$KEYSTORE_KEY_ALIAS" >> keystore.properties
           echo "storePassword=$KEYSTORE_STORE_PASSWORD" >> keystore.properties
           echo "keyPassword=$KEYSTORE_KEY_PASSWORD" >> keystore.properties
         env:
           PLAY_STORE_UPLOAD_KEY: ${{ secrets.PLAY_STORE_UPLOAD_KEY }}
+          STORE_FILE: ${{ secrets.STORE_FILE }}
           KEYSTORE_KEY_ALIAS: ${{ secrets.KEYSTORE_KEY_ALIAS }}
           KEYSTORE_KEY_PASSWORD: ${{ secrets.KEYSTORE_KEY_PASSWORD }}
           KEYSTORE_STORE_PASSWORD: ${{ secrets.KEYSTORE_STORE_PASSWORD }}
